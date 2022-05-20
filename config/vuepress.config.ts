@@ -35,6 +35,13 @@ export default defineUserConfig({
                 '/specification/base-protocol/base-protocol-json-structures.md',
               ],
             },
+            {
+              text: 'Language Server Protocol',
+              collapsible: true,
+              children: [
+                '/specification/language-server-protocol/language-server-protocol.md',
+              ],
+            },
           ],
         },
       },

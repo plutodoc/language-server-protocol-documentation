@@ -1,3 +1,5 @@
+import { gitPlugin } from '@vuepress/plugin-git';
+import { searchPlugin } from '@vuepress/plugin-search';
 import { defaultTheme } from '@vuepress/theme-default';
 import { defineUserConfig } from 'vuepress';
 
@@ -17,6 +19,7 @@ export default defineUserConfig({
     repo: 'https://github.com/microsoft/language-server-protocol',
     locales: {
       '/': {
+        editLink: false,
         navbar: [
           {
             text: 'Specification',
@@ -61,5 +64,12 @@ export default defineUserConfig({
     },
   }),
   markdown: {},
-  plugins: [],
+  plugins: [
+    gitPlugin({
+      contributors: false,
+    }),
+    searchPlugin({
+      isSearchable: (page) => page.path !== '/',
+    }),
+  ],
 });

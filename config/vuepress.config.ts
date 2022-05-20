@@ -52,6 +52,7 @@ export default defineUserConfig({
                 '/specification/basic-json-structures/basic-json-structures.md',
                 '/specification/basic-json-structures/uri.md',
                 '/specification/basic-json-structures/regexp.md',
+                '/specification/basic-json-structures/enumerations.md',
               ],
             },
           ],

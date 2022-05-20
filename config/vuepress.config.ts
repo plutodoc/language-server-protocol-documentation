@@ -50,6 +50,7 @@ export default defineUserConfig({
               collapsible: true,
               children: [
                 '/specification/basic-json-structures/basic-json-structures.md',
+                '/specification/basic-json-structures/uri.md',
               ],
             },
           ],

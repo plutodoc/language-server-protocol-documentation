@@ -41,6 +41,7 @@ export default defineUserConfig({
               children: [
                 '/specification/language-server-protocol/language-server-protocol.md',
                 '/specification/language-server-protocol/capabilities.md',
+                '/specification/language-server-protocol/message-ordering.md',
               ],
             },
           ],

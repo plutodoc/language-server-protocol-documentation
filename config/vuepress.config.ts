@@ -51,6 +51,7 @@ export default defineUserConfig({
               children: [
                 '/specification/basic-json-structures/basic-json-structures.md',
                 '/specification/basic-json-structures/uri.md',
+                '/specification/basic-json-structures/regexp.md',
               ],
             },
           ],

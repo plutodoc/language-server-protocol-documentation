@@ -31,6 +31,7 @@ export default defineUserConfig({
               children: [
                 '/specification/base-protocol/base-protocol.md',
                 '/specification/base-protocol/header-part.md',
+                '/specification/base-protocol/content-part.md',
               ],
             },
           ],

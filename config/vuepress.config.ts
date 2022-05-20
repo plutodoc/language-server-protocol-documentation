@@ -115,6 +115,7 @@ export default defineUserConfig({
                 '/specification/basic-json-structures/regexp.md',
                 '/specification/basic-json-structures/enumerations.md',
                 '/specification/basic-json-structures/text-documents.md',
+                '/specification/basic-json-structures/position.md',
               ],
             },
           ],

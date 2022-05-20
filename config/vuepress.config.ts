@@ -45,6 +45,13 @@ export default defineUserConfig({
                 '/specification/language-server-protocol/message-documentation.md',
               ],
             },
+            {
+              text: 'Basic JSON Structures',
+              collapsible: true,
+              children: [
+                '/specification/basic-json-structures/basic-json-structures.md',
+              ],
+            },
           ],
         },
       },

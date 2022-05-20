@@ -1,4 +1,4 @@
-# Request, Notification and Response Ordering 
+# Request, Notification and Response Ordering
 
 Responses to requests should be sent in roughly the same order as the requests appear on the server or client side. So for example if a server receives a `textDocument/completion` request and then a `textDocument/signatureHelp` request it will usually first return the response for the `textDocument/completion` and then the response for `textDocument/signatureHelp`.
 

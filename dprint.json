@@ -8,8 +8,10 @@
     "json": {
         "indentWidth": 4
     },
+    "markdown": {
+    },
     "includes": [
-        "**/*.{ts,tsx,js,jsx,cjs,mjs,json}"
+        "**/*.{ts,tsx,js,jsx,cjs,mjs,json,md}"
     ],
     "excludes": [
         "**/node_modules",
@@ -19,6 +21,7 @@
     ],
     "plugins": [
         "https://plugins.dprint.dev/typescript-0.67.0.wasm",
-        "https://plugins.dprint.dev/json-0.15.1.wasm"
+        "https://plugins.dprint.dev/json-0.15.1.wasm",
+        "https://plugins.dprint.dev/markdown-0.13.2.wasm"
     ]
 }

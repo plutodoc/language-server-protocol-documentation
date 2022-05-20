@@ -6,8 +6,8 @@ An example would be a request send from the client to the server to request a ho
 
 ```typescript
 interface HoverParams {
-	textDocument: string; /** The text document's URI in string form */
-	position: { line: uinteger; character: uinteger; };
+  textDocument: string; /** The text document's URI in string form */
+  position: { line: uinteger; character: uinteger };
 }
 ```
 
@@ -15,7 +15,7 @@ The result of the request would be the hover to be presented. In its simple form
 
 ```typescript
 interface HoverResult {
-	value: string;
+  value: string;
 }
 ```
 
@@ -24,4 +24,3 @@ Please also note that a response return value of `null` indicates no result. It 
 In general, the language server protocol supports JSON-RPC messages, however the base protocol defined here uses a convention such that the parameters passed to request/notification messages should be of `object` type (if passed at all). However, this does not disallow using `Array` parameter types in custom messages.
 
 The protocol currently assumes that one server serves one tool. There is currently no support in the protocol to share one server between different tools. Such a sharing would require additional protocol e.g. to lock a document to support concurrent editing.
-

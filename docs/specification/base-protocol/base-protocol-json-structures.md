@@ -45,8 +45,7 @@ export type decimal = number;
  *
  * @since 3.17.0
  */
-export type LSPAny = LSPObject | LSPArray | string | integer | uinteger |
-	decimal | boolean | null;
+export type LSPAny = LSPObject | LSPArray | string | integer | uinteger | decimal | boolean | null;
 ```
 
 <div class="anchorHolder"><a href="#lspObject" name="lspObject" class="linkableAnchor"></a></div>
@@ -79,7 +78,7 @@ A general message as defined by JSON-RPC. The language server protocol always us
 
 ```typescript
 interface Message {
-	jsonrpc: string;
+  jsonrpc: string;
 }
 ```
 
@@ -89,18 +88,18 @@ A request message to describe a request between the client and the server. Every
 
 ```typescript
 interface RequestMessage extends Message {
-	/**
-	 * The request id.
-	 */
-	id: integer | string;
-	/**
-	 * The method to be invoked.
-	 */
-	method: string;
-	/**
-	 * The method's params.
-	 */
-	params?: array | object;
+  /**
+   * The request id.
+   */
+  id: integer | string;
+  /**
+   * The method to be invoked.
+   */
+  method: string;
+  /**
+   * The method's params.
+   */
+  params?: array | object;
 }
 ```
 
@@ -110,19 +109,19 @@ A Response Message sent as a result of a request. If a request doesn't provide a
 
 ```typescript
 interface ResponseMessage extends Message {
-	/**
-	 * The request id.
-	 */
-	id: integer | string | null;
-	/**
-	 * The result of a request. This member is REQUIRED on success.
-	 * This member MUST NOT exist if there was an error invoking the method.
-	 */
-	result?: string | number | boolean | object | null;
-	/**
-	 * The error object in case a request fails.
-	 */
-	error?: ResponseError;
+  /**
+   * The request id.
+   */
+  id: integer | string | null;
+  /**
+   * The result of a request. This member is REQUIRED on success.
+   * This member MUST NOT exist if there was an error invoking the method.
+   */
+  result?: string | number | boolean | object | null;
+  /**
+   * The error object in case a request fails.
+   */
+  error?: ResponseError;
 }
 ```
 
@@ -130,19 +129,19 @@ interface ResponseMessage extends Message {
 
 ```typescript
 interface ResponseError {
-	/**
-	 * A number indicating the error type that occurred.
-	 */
-	code: integer;
-	/**
-	 * A string providing a short description of the error.
-	 */
-	message: string;
-	/**
-	 * A primitive or structured value that contains additional
-	 * information about the error. Can be omitted.
-	 */
-	data?: string | number | boolean | array | object | null;
+  /**
+   * A number indicating the error type that occurred.
+   */
+  code: integer;
+  /**
+   * A string providing a short description of the error.
+   */
+  message: string;
+  /**
+   * A primitive or structured value that contains additional
+   * information about the error. Can be omitted.
+   */
+  data?: string | number | boolean | array | object | null;
 }
 ```
 
@@ -150,105 +149,105 @@ interface ResponseError {
 
 ```typescript
 export namespace ErrorCodes {
-	// Defined by JSON-RPC
-	export const ParseError: integer = -32700;
-	export const InvalidRequest: integer = -32600;
-	export const MethodNotFound: integer = -32601;
-	export const InvalidParams: integer = -32602;
-	export const InternalError: integer = -32603;
-	/**
-	 * This is the start range of JSON-RPC reserved error codes.
-	 * It doesn't denote a real error code. No LSP error codes should
-	 * be defined between the start and end range. For backwards
-	 * compatibility the `ServerNotInitialized` and the `UnknownErrorCode`
-	 * are left in the range.
-	 *
-	 * @since 3.16.0
-	 */
-	export const jsonrpcReservedErrorRangeStart: integer = -32099;
-	/** @deprecated use jsonrpcReservedErrorRangeStart */
-	export const serverErrorStart: integer = jsonrpcReservedErrorRangeStart;
-	/**
-	 * Error code indicating that a server received a notification or
-	 * request before the server has received the `initialize` request.
-	 */
-	export const ServerNotInitialized: integer = -32002;
-	export const UnknownErrorCode: integer = -32001;
-	/**
-	 * This is the end range of JSON-RPC reserved error codes.
-	 * It doesn't denote a real error code.
-	 *
-	 * @since 3.16.0
-	 */
-	export const jsonrpcReservedErrorRangeEnd = -32000;
-	/** @deprecated use jsonrpcReservedErrorRangeEnd */
-	export const serverErrorEnd: integer = jsonrpcReservedErrorRangeEnd;
-	/**
-	 * This is the start range of LSP reserved error codes.
-	 * It doesn't denote a real error code.
-	 *
-	 * @since 3.16.0
-	 */
-	export const lspReservedErrorRangeStart: integer = -32899;
-	/**
-	 * A request failed but it was syntactically correct, e.g the
-	 * method name was known and the parameters were valid. The error
-	 * message should contain human readable information about why
-	 * the request failed.
-	 *
-	 * @since 3.17.0
-	 */
-	export const RequestFailed: integer = -32803;
-	/**
-	 * The server cancelled the request. This error code should
-	 * only be used for requests that explicitly support being
-	 * server cancellable.
-	 *
-	 * @since 3.17.0
-	 */
-	export const ServerCancelled: integer = -32802;
-	/**
-	 * The server detected that the content of a document got
-	 * modified outside normal conditions. A server should
-	 * NOT send this error code if it detects a content change
-	 * in it unprocessed messages. The result even computed
-	 * on an older state might still be useful for the client.
-	 *
-	 * If a client decides that a result is not of any use anymore
-	 * the client should cancel the request.
-	 */
-	export const ContentModified: integer = -32801;
-	/**
-	 * The client has canceled a request and a server as detected
-	 * the cancel.
-	 */
-	export const RequestCancelled: integer = -32800;
-	/**
-	 * This is the end range of LSP reserved error codes.
-	 * It doesn't denote a real error code.
-	 *
-	 * @since 3.16.0
-	 */
-	export const lspReservedErrorRangeEnd: integer = -32800;
+  // Defined by JSON-RPC
+  export const ParseError: integer = -32700;
+  export const InvalidRequest: integer = -32600;
+  export const MethodNotFound: integer = -32601;
+  export const InvalidParams: integer = -32602;
+  export const InternalError: integer = -32603;
+  /**
+   * This is the start range of JSON-RPC reserved error codes.
+   * It doesn't denote a real error code. No LSP error codes should
+   * be defined between the start and end range. For backwards
+   * compatibility the `ServerNotInitialized` and the `UnknownErrorCode`
+   * are left in the range.
+   *
+   * @since 3.16.0
+   */
+  export const jsonrpcReservedErrorRangeStart: integer = -32099;
+  /** @deprecated use jsonrpcReservedErrorRangeStart */
+  export const serverErrorStart: integer = jsonrpcReservedErrorRangeStart;
+  /**
+   * Error code indicating that a server received a notification or
+   * request before the server has received the `initialize` request.
+   */
+  export const ServerNotInitialized: integer = -32002;
+  export const UnknownErrorCode: integer = -32001;
+  /**
+   * This is the end range of JSON-RPC reserved error codes.
+   * It doesn't denote a real error code.
+   *
+   * @since 3.16.0
+   */
+  export const jsonrpcReservedErrorRangeEnd = -32000;
+  /** @deprecated use jsonrpcReservedErrorRangeEnd */
+  export const serverErrorEnd: integer = jsonrpcReservedErrorRangeEnd;
+  /**
+   * This is the start range of LSP reserved error codes.
+   * It doesn't denote a real error code.
+   *
+   * @since 3.16.0
+   */
+  export const lspReservedErrorRangeStart: integer = -32899;
+  /**
+   * A request failed but it was syntactically correct, e.g the
+   * method name was known and the parameters were valid. The error
+   * message should contain human readable information about why
+   * the request failed.
+   *
+   * @since 3.17.0
+   */
+  export const RequestFailed: integer = -32803;
+  /**
+   * The server cancelled the request. This error code should
+   * only be used for requests that explicitly support being
+   * server cancellable.
+   *
+   * @since 3.17.0
+   */
+  export const ServerCancelled: integer = -32802;
+  /**
+   * The server detected that the content of a document got
+   * modified outside normal conditions. A server should
+   * NOT send this error code if it detects a content change
+   * in it unprocessed messages. The result even computed
+   * on an older state might still be useful for the client.
+   *
+   * If a client decides that a result is not of any use anymore
+   * the client should cancel the request.
+   */
+  export const ContentModified: integer = -32801;
+  /**
+   * The client has canceled a request and a server as detected
+   * the cancel.
+   */
+  export const RequestCancelled: integer = -32800;
+  /**
+   * This is the end range of LSP reserved error codes.
+   * It doesn't denote a real error code.
+   *
+   * @since 3.16.0
+   */
+  export const lspReservedErrorRangeEnd: integer = -32800;
 }
 ```
+
 ## Notification Message
 
 A notification message. A processed notification message must not send a response back. They work like events.
 
 ```typescript
 interface NotificationMessage extends Message {
-	/**
-	 * The method to be invoked.
-	 */
-	method: string;
-	/**
-	 * The notification's params.
-	 */
-	params?: array | object;
+  /**
+   * The method to be invoked.
+   */
+  method: string;
+  /**
+   * The notification's params.
+   */
+  params?: array | object;
 }
 ```
-
 
 ## $ Notifications and Requests
 
@@ -259,15 +258,16 @@ Notification and requests whose methods start with '\$/' are messages which are 
 The base protocol offers support for request cancellation. To cancel a request, a notification message with the following properties is sent:
 
 _Notification_:
-* method: '$/cancelRequest'
-* params: `CancelParams` defined as follows:
+
+- method: '$/cancelRequest'
+- params: `CancelParams` defined as follows:
 
 ```typescript
 interface CancelParams {
-	/**
-	 * The request id to cancel.
-	 */
-	id: integer | string;
+  /**
+   * The request id to cancel.
+   */
+  id: integer | string;
 }
 ```
 
@@ -280,8 +280,9 @@ The base protocol offers also support to report progress in a generic fashion. T
 A progress notification has the following properties:
 
 _Notification_:
-* method: '$/progress'
-* params: `ProgressParams` defined as follows:
+
+- method: '$/progress'
+- params: `ProgressParams` defined as follows:
 
 ```typescript
 type ProgressToken = integer | string;
@@ -289,14 +290,14 @@ type ProgressToken = integer | string;
 
 ```typescript
 interface ProgressParams<T> {
-	/**
-	 * The progress token provided by the client or server.
-	 */
-	token: ProgressToken;
-	/**
-	 * The progress data.
-	 */
-	value: T;
+  /**
+   * The progress token provided by the client or server.
+   */
+  token: ProgressToken;
+  /**
+   * The progress data.
+   */
+  value: T;
 }
 ```
 

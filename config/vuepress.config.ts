@@ -30,6 +30,7 @@ export default defineUserConfig({
               collapsible: true,
               children: [
                 '/specification/base-protocol/base-protocol.md',
+                '/specification/base-protocol/header-part.md',
               ],
             },
           ],

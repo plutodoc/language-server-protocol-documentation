@@ -118,6 +118,7 @@ export default defineUserConfig({
                 '/specification/basic-json-structures/position.md',
                 '/specification/basic-json-structures/range.md',
                 '/specification/basic-json-structures/text-document-item.md',
+                '/specification/basic-json-structures/text-document-identifier.md',
               ],
             },
           ],

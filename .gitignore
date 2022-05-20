@@ -1,0 +1,17 @@
+# Node.js
+node_modules/
+
+# VuePress
+.temp/
+.cache/
+dist/
+
+# macOS
+.DS_Store
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+
+.env

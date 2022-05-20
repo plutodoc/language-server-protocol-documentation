@@ -1,0 +1,13 @@
+{
+    "name": "vuepress-pluto",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "vuepress dev docs --config ./config/vuepress.config.ts",
+        "build": "vuepress build docs --config ./config/vuepress.config.ts",
+        "fmt": "dprint fmt"
+    },
+    "devDependencies": {
+        "vuepress": "^2.0.0-beta.45"
+    }
+}

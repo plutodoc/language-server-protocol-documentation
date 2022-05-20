@@ -40,6 +40,7 @@ export default defineUserConfig({
               collapsible: true,
               children: [
                 '/specification/language-server-protocol/language-server-protocol.md',
+                '/specification/language-server-protocol/capabilities.md',
               ],
             },
           ],
